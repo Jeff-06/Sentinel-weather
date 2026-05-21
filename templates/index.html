@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentinel Weather</title>
+
+    <meta http-equiv="refresh" content="10">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>🌤 Sentinel Weather</h1>
+
+        <p>🌡 Temperature: {{ temp }}°C</p>
+        <p>💨 Wind: {{ wind }} km/h</p>
+        <p>☁ Condition: {{ condition }}</p>
+
+        <hr>
+
+        <p>👉 {{ advice }}</p>
+    </div>
+
+</body>
+</html>

@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     temp, wind, code = get_weather()
-    temp = os.popen("vcgencmd measure_temp").read()
+    temper = os.popen("vcgencmd measure_temp").read()
     cpu = psutil.cpu_percent()
     memory = psutil.virtual_memory().percent
     if temp is None:
@@ -32,7 +32,7 @@ def home():
     advice=advice,
     cpu=cpu,
     memory=memory,
-    temp=temp
+    temper=temper
 )
 
     

@@ -1,17 +1,35 @@
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #0f172a;
     color: white;
     font-family: Arial;
     padding: 40px;
 }
 
-.card {
+.weather_card {
     background-color: #1e293b;
     padding: 20px;
     border-radius: 15px;
     width: 300px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    
 }
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+.pi {
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    margin-left: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
 
 h1 {
     color: #38bdf8;

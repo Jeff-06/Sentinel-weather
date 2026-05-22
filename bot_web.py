@@ -2,11 +2,15 @@ from flask import Flask, render_template
 from weather import get_weather
 from logic import *
 import os
+import psutil
 app = Flask(__name__)
 
 @app.route('/')
 def home():
     temp, wind, code = get_weather()
+    temp = os.popen("vcgencmd measure_temp").read()
+    cpu = psutil.cpu_percent()
+    memory = psutil.virtual_memory().percent
     if temp is None:
         return """
 <html>
@@ -25,19 +29,13 @@ def home():
     temp=temp,
     wind=wind,
     condition=condition,
-    advice=advice
+    advice=advice,
+    cpu=cpu,
+    memory=memory,
+    temp=temp
 )
 
-@app.route('/pi')
-def pi():
-    temp = os.popen("vcgencmd measure_temp").read()
-    uptime = os.popen("uptime -p").read()
-    memory = os.popen("free -h").read()
+    
 
-    return f"""
-    <h1>Pi System Info</h1>
-    <p><b>CPU Temp:</b> {temp}</p>
-    <p><b>Uptime:</b> {uptime}</p>
-    <pre>{memory}</pre>
-    """
+
 app.run(host='0.0.0.0', port=5000)

@@ -5,6 +5,8 @@ import os
 import psutil
 app = Flask(__name__)
 
+#color for buttons - #226CE0
+
 @app.route('/')
 def home():
     temp, wind, code = get_weather()
